@@ -47,7 +47,7 @@ class Parser(object):
                 if len(tag) > 3 or "X" in tag:
                     continue
                 repeatable = fields.attrib["repeatable"]
-                parsedField += "// " + name + "\n" + tag + self.fieldRepetitionSymbol(name, repeatable) + " | "
+                parsedField += "// " + name + "\n" + tag + self.fieldRepetitionSymbol(tag, repeatable) + " | "
                 for prop in fields:
                     inds = prop.findall("indicator")
                     if len(inds) > 0:
@@ -105,6 +105,8 @@ class Parser(object):
     def fieldRepetitionSymbol(self, field, repeatable):
         if field == "245":
             return "_"
+        elif field == "336" or field == "337":
+            return "+"
         elif repeatable == "Y":
             return "*"
         else:
