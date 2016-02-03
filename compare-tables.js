@@ -56,7 +56,7 @@ function compareLines(array1, array2, warnings, callback) {
   }
 }
 
-var promises = ["./data/ma_bibl.chk_ORIG", "./data/ma_bibl.chk"].map(readAFile);
+var promises = ["./data/ma_bibl.chk_ORIG", "./data/ma_bibl.chk_NEW"].map(readAFile);
 
 Promise.all(promises).then( data => {
   let oldData = processData(data[0]);
