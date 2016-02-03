@@ -103,9 +103,9 @@ class Parser(object):
                 pass
 
     def fieldRepetitionSymbol(self, field, repeatable):
-        if (field == "245"):
+        if field == "245":
             return "_"
-        elif (repeatable == "Y"):
+        elif repeatable == "Y":
             return "*"
         else:
             return "?"
